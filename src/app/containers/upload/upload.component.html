@@ -1,0 +1,36 @@
+<section class="section">
+  <div class="row">
+    <span class="space-after">file:</span>
+    <span class="space-after">
+      <input
+        class="file-input space-after"
+        [formControl]="fileControl"
+        matInput
+        readonly />
+    </span>
+
+    <button mat-flat-button color="primary" (click)="openModal()">
+      Browse
+    </button>
+  </div>
+  <div class="row">
+    <button
+      mat-flat-button
+      color="primary"
+      (click)="uploadFile(fileControl.value)"
+      [disabled]="!fileControl.valid">
+      Upload
+    </button>
+  </div>
+  <div class="row">
+    <mat-progress-bar
+      *ngIf="isLoading$ | async"
+      mode="determinate"
+      value="0"></mat-progress-bar>
+  </div>
+  <div class="row">
+    <span *ngIf="isUploaded$ | async" class="upload-complete"
+      >Upload Complete!</span
+    >
+  </div>
+</section>

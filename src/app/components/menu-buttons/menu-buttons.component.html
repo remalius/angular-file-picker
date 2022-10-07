@@ -1,0 +1,20 @@
+<mat-nav-list [ngClass]="{ 'mobile-list': !isDesktop }">
+  <button
+    [ngClass]="{ 'mobile-button': !isDesktop, 'desktop-button': isDesktop }"
+    mat-flat-button
+    color="primary"
+    routerLink="/upload"
+    routerLinkActive="active"
+    ariaCurrentWhenActive="page">
+    Upload page
+  </button>
+  <button
+    [ngClass]="{ 'mobile-button': !isDesktop, 'desktop-button': isDesktop }"
+    mat-flat-button
+    color="primary"
+    routerLink="/history"
+    routerLinkActive="active"
+    ariaCurrentWhenActive="page">
+    History page
+  </button>
+</mat-nav-list>

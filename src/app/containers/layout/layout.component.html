@@ -1,0 +1,31 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav
+    #drawer
+    class="sidenav"
+    fixedInViewport
+    [attr.role]="(isMobile$ | async) ? 'dialog' : 'navigation'"
+    position="end"
+    mode="over">
+    <app-menu-buttons></app-menu-buttons>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="accent" class="mat-toolbar mat-primary">
+      <ng-container *ngIf="isMobile$ | async; else desktopMenu">
+        <span class="spacer"></span>
+        <button
+          type="button"
+          aria-label="Toggle sidenav"
+          mat-icon-button
+          (click)="drawer.toggle()">
+          <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        </button>
+      </ng-container>
+    </mat-toolbar>
+    <div class="content">
+      <ng-content></ng-content>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+<ng-template #desktopMenu>
+  <app-menu-buttons [isDesktop]="true"></app-menu-buttons>
+</ng-template>

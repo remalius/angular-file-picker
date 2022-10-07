@@ -1,0 +1,21 @@
+@use '@angular/material' as mat;
+
+$link-color: mat.get-color-from-palette(mat.$blue-palette, A200);
+
+.mobile-list {
+  display: flex;
+  flex-flow: column;
+}
+
+.mobile-button {
+  margin: 8px 16px;
+}
+
+.desktop-button {
+  margin-right: 16px;
+}
+
+:not(.active) {
+  background: inherit;
+  color: $link-color;
+}

@@ -1,0 +1,17 @@
+<section class="section">
+  <div *ngIf="filesHistory$ | async as filesHistory" class="row">
+    <ng-container>
+      <div *ngFor="let file of filesHistory">{{ file }}</div>
+    </ng-container>
+    <ng-container *ngIf="!filesHistory.length">No Files</ng-container>
+  </div>
+  <div class="row">
+    <button
+      mat-flat-button
+      color="primary"
+      [disabled]="isLoading$ | async"
+      (click)="clearHistory()">
+      Clear
+    </button>
+  </div>
+</section>

@@ -1,0 +1,22 @@
+.type-icon {
+  color: #757575;
+  margin-right: 5px;
+}
+
+.node {
+  cursor: pointer;
+
+  &:hover {
+    background: aliceblue;
+  }
+}
+
+.selected-node {
+  background: lightgray;
+}
+
+.mat-icon-button {
+  width: 22px;
+  height: 24px;
+  line-height: 20px;
+}

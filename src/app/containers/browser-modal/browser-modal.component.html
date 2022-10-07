@@ -1,0 +1,14 @@
+<h1 mat-dialog-title>File Browser</h1>
+<div mat-dialog-content>
+  <app-tree (selectedFile)="setFile($event)"></app-tree>
+</div>
+<div mat-dialog-actions>
+  <button
+    mat-flat-button
+    color="primary"
+    [disabled]="!file"
+    [mat-dialog-close]="file">
+    Select
+  </button>
+  <button mat-flat-button color="warn" mat-dialog-close>Close</button>
+</div>

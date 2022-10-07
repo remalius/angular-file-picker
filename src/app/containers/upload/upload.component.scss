@@ -1,0 +1,90 @@
+@use '@angular/material' as mat;
+@import '../../styles/row';
+
+$progress-bar-color-1: mat.get-color-from-palette(mat.$blue-palette, A200);
+$progress-bar-color-2: mat.get-color-from-palette(mat.$blue-palette, A400);
+
+@mixin gradient-striped($color: rgba(255, 255, 255, 0.15), $angle: 45deg) {
+  background-image: -webkit-linear-gradient(
+    $angle,
+    $color 25%,
+    transparent 25%,
+    transparent 50%,
+    $color 50%,
+    $color 75%,
+    transparent 75%,
+    transparent
+  );
+  background-image: -o-linear-gradient(
+    $angle,
+    $color 25%,
+    transparent 25%,
+    transparent 50%,
+    $color 50%,
+    $color 75%,
+    transparent 75%,
+    transparent
+  );
+  background-image: linear-gradient(
+    $angle,
+    $color 25%,
+    transparent 25%,
+    transparent 50%,
+    $color 50%,
+    $color 75%,
+    transparent 75%,
+    transparent
+  );
+}
+
+@keyframes progress-bar-stripes {
+  from {
+    background-position: 40px 0;
+  }
+  to {
+    background-position: 0 0;
+  }
+}
+
+@mixin animation($animation) {
+  -webkit-animation: $animation;
+  -o-animation: $animation;
+  animation: $animation;
+}
+
+section {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 0 150px;
+}
+
+.space-after {
+  padding-right: 28px;
+}
+
+.file-input {
+  height: 28px;
+  border-width: 1px;
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, 0.12);
+  border-color: rgba(0, 0, 0, 0.26);
+  cursor: default;
+}
+
+.mat-flat-button {
+  margin: 8px 8px 8px 0;
+}
+
+.mat-progress-bar {
+  height: 12px;
+  @include gradient-striped($progress-bar-color-1);
+  @include animation(progress-bar-stripes 2s linear infinite);
+  background-color: $progress-bar-color-2;
+  background-size: 20px 16px;
+  border-radius: 4px;
+
+  ::ng-deep div {
+    display: none;
+  }
+}
